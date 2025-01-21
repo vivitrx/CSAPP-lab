@@ -1,9 +1,12 @@
 #include "cachelab.h"
 #include <stdlib.h>
 #include <string.h>
+
 #include <unistd.h>
+#include <getopt.h>
+#include <stdlib.h>
+
 #include <stdio.h>
-static int totalSet; // Set的总数量
 static int s;
 static int E;
 static int b;

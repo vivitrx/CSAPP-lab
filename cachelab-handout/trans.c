@@ -22,13 +22,37 @@ int is_transpose(int M, int N, int A[N][M], int B[M][N]);
 char transpose_submit_desc[] = "Transpose submission";
 void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 {
+    int gap = 8;
+    int row, column;
+    int r, c;
+    int row_edge;
+    int column_edge;
+    // 分块矩阵转置，gap*gap矩阵转置
+    for (row = 0; row < N; row = row + gap)
+    {
+        for (column = 0; column < M; column = column + gap)
+        {
+            if(column + gap > M)
+                column_edge = M;
+                else column_edge = column + gap;
+            if(row + gap > N)
+                row_edge = N;
+                else row_edge = row + gap;
+            for (r = row; r < row_edge; r++)
+            {
+                for (c = column; c < column_edge; c++) // 转置分块矩阵中的一行
+                {
+                    B[c][r] = A[r][c];
+                }           
+            }
+       }   
+    }
 }
 
 /* 
  * You can define additional transpose functions below. We've defined
  * a simple one below to help you get started. 
  */ 
-
 /* 
  * trans - A simple baseline transpose function, not optimized for the cache.
  */
