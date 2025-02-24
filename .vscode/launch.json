@@ -2,23 +2,25 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug a.out with arguments",
+      "name": "Debug a.out with child process",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/cachelab-handout/a.out",
-      "args": ["-s", "4", "-E", "1", "-b", "4", "-t", "${workspaceFolder}/cachelab-handout/traces/long.trace"],
+      "program": "${workspaceFolder}/shlab-handout/test/tsh_functionTest.out",
+      "args": ["your_program_args"],  // 替换为你程序的命令行参数
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
-      "environment": [],
-      "externalConsole": false,
       "MIMode": "gdb",
+      "externalConsole": true,
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
         }
-      ]
+      ],
+      "preLaunchTask": "build",  // 如果有构建任务需要在调试前执行
+      "serverLaunch": true,  // 确保调试器能连接到子进程
+      "trace": true  // 可以开启跟踪来查看调试器的详细输出
     }
   ]
 }

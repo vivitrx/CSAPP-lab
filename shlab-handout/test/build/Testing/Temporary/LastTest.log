@@ -1,0 +1,19 @@
+Start testing: Feb 14 15:45 HKT
+----------------------------------------------------------
+Unable to find executable: /home/vvtrx/CSAPP/shlab-handout/test/build/tsh_test
+1/1 Testing: TinyShellTest
+1/1 Test: TinyShellTest
+Command: ""
+Directory: /home/vvtrx/CSAPP/shlab-handout/test/build
+"TinyShellTest" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"TinyShellTest" end time: Feb 14 15:45 HKT
+"TinyShellTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 14 15:45 HKT

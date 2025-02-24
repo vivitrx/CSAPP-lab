@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/tsh_test.dir/tsh_functionTest.c.o -o tsh_test  /usr/local/lib/libgtest.a -lpthread -lpthread

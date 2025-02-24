@@ -1,34 +1,33 @@
 import sys
+import re
 
 # 检查命令行参数
 if len(sys.argv) != 3:
     print("用法: python3 delete_lines.py <源文件> <目标文件>")
     sys.exit(1)
 
-# 从命令行获取源文件和目标文件
+# 获取文件名
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 
+def is_english(text):
+    """判断一行是否主要是英文"""
+    return re.match(r'^[A-Za-z0-9\s\.,!?\'"-]+$', text.strip()) is not None
+
 try:
-    # 读取源文件内容
+    # 读取源文件
     with open(input_file, "r", encoding="utf-8") as file:
         lines = file.readlines()
 
-    # 第一次删除操作：删除第1行和每隔4行的一行
-    filtered_lines_step1 = [
-        line for i, line in enumerate(lines)
-        if (i != 0 and (i % 4 != 0))
-    ]
+    # 过滤掉英文行，并去除空行
+    chinese_lines = [line.strip() for line in lines if not is_english(line) and line.strip()]
 
-    # 第二次删除操作：删除第1行和每隔3行的一行（基于第一次删除的结果）
-    filtered_lines_step2 = [
-        line for i, line in enumerate(filtered_lines_step1)
-        if (i != 0 and (i % 3 != 0))
-    ]
+    # 让中文字幕之间保持一行间隔
+    spaced_lines = "\n\n".join(chinese_lines) + "\n"
 
-    # 将结果写入目标文件
+    # 写入目标文件
     with open(output_file, "w", encoding="utf-8") as file:
-        file.writelines(filtered_lines_step2)
+        file.write(spaced_lines)
 
     print(f"已成功处理文件，并将结果保存到: {output_file}")
 

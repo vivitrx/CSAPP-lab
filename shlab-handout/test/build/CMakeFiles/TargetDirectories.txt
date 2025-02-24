@@ -1,0 +1,4 @@
+/home/vvtrx/CSAPP/shlab-handout/test/build/CMakeFiles/tsh_test.dir
+/home/vvtrx/CSAPP/shlab-handout/test/build/CMakeFiles/test.dir
+/home/vvtrx/CSAPP/shlab-handout/test/build/CMakeFiles/edit_cache.dir
+/home/vvtrx/CSAPP/shlab-handout/test/build/CMakeFiles/rebuild_cache.dir
